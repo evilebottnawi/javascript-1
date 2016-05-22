@@ -12,6 +12,28 @@ This repository contains a collection of Codemods written with [JSCodeshift](htt
 
 ## Included Transforms
 
+### `arguments-to-args-spread`
+
+In functions that reference `arguments`, adds an explicit `...args` spread to the function parameters, and replaces `arguments` references with `args`.  See eslint's [`prefer-rest-params`.](http://eslint.org/docs/rules/prefer-rest-params)) rule for more details.
+
+```sh
+jscodeshift -t shopify-codemods/transforms/arguments-to-args-spread <file>
+```
+
+### Example
+
+```js
+function foo() {
+  bar(arguments);
+}
+
+// BECOMES:
+
+function foo(...args) {
+  bar(args);  
+}
+```
+
 ### `remove-empty-statements`
 
 Removes empty statements, which usually manifest as unnecessary semicolons.
