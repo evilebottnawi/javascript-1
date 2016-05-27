@@ -1,7 +1,11 @@
 # Changelog
 
 ## [Unreleased]
+### Added
+- Added node.js-specific Babel presets to `babel-preset-shopify`.
 
+### Changed
+- Removed `babel-preset-react` from the default `babel-preset-shopify` preset. A new preset was added to get the default preset with React, which is usable by extending the `shopify/react` babel preset.
 
 ## [12.0.0]
 ### Added
